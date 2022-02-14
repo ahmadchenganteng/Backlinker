@@ -11,19 +11,19 @@ try:
     
   """)
   if (sys.version_info.major == 3):
-    site = input(" => Backlink Kasilcak Site\t: ")
+    site = input(" => Masukaan Situsmu\t: ")
   else:
-    site = raw_input(" => Backlink Kasilcak Site\t: ")
+    site = raw_input(" => Masukaan Situsmu\t: ")
   with open("urlbacklinks.json", "r") as file:
     data = json.loads(file.read())
     for backlink in data:
-      url = backlink['url'].replace("h4link.duckdns.org", site)
+      url = backlink['url'].replace("anon7secteam.blogspot.com", site)
       try:
         r = requests.get(url).status_code
       except KeyboardInterrupt:
         sys.exit()
       except:
         r = "time out"
-      print(site + " => Backlink Eklendi ==> "+re.search('http:\/\/.*?\/', url).group(0).replace("/", "").replace("http:","") + " status: "+str(r))
+      print(site + " => Berhasil Sayang ==> "+re.search('http:\/\/.*?\/', url).group(0).replace("/", "").replace("http:","") + " status: "+str(r))
 except:
   print("\n\n => exit\n")
